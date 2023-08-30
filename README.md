@@ -20,6 +20,11 @@ Author: [Sahaj Singh](https://github.com/SatireSage)
 
 The Scrolling Message Display Board (SMDB) is a digital system designed to display scrolling messages on HEX displays. This project encompasses various components, including the Application Specific Instruction set Processor (ASIP), Control Units, IO Controllers, and more. This repository contains the VHDL designs, testbenches, and associated documentation for the SMDB.
 
+#### Structural Diagram of SMDB:
+![FE8622C4-47B0-48A2-8173-BC0915EDE35F](https://github.com/SatireSage/Scrolling-Message-Display-Board/assets/49692422/5e2ea0b4-f3f6-4961-a4ab-0e842526b0a4)
+#### Structural Diagram of ASIP:
+![6D700962-13F3-40EF-AD2B-58441C38751C](https://github.com/SatireSage/Scrolling-Message-Display-Board/assets/49692422/ded4f70f-f5c4-4968-afee-692eb720cda0)
+
 These subsystems work together to the system to display scrolling messages on the HEX displays. The ASIP is responsible for executing the program instructions, while the IO Controller manages the input and output devices. The Control Unit coordinates the operation of the system, and the Scheduler determines the order in which the instructions are executed.
 
 A brief description of all the components in the design are as follows:
