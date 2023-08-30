@@ -1,0 +1,905 @@
+Analysis & Synthesis report for Final
+Mon Dec 06 20:39:57 2021
+Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |smdb|AudioInterface:assm|AudioSubSystemMono:ASSM|CodecInit:CI|\CU:State
+  9. State Machine - |smdb|AudioInterface:assm|AudioSubSystemMono:ASSM|CodecInit:CI|I2CTx:TX|I2CTxCu:CU|PacketState
+ 10. State Machine - |smdb|AudioInterface:assm|AudioSubSystemMono:ASSM|CodecInit:CI|I2CTx:TX|I2CTxCu:CU|CycleState
+ 11. State Machine - |smdb|AudioInterface:assm|AudioSubSystemMono:ASSM|CodecInit:CI|I2CTx:TX|I2CTxCu:CU|MainState
+ 12. State Machine - |smdb|asip:OBJ3|datapath:OBJ3|scheduler:OBJ1|progState
+ 13. Registers Removed During Synthesis
+ 14. Removed Registers Triggering Further Register Optimizations
+ 15. General Register Statistics
+ 16. Inverted Register Statistics
+ 17. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 18. Source assignments for AudioInterface:assm|AudioSubSystemMono:ASSM|Synchroniser:SYN
+ 19. Source assignments for AudioInterface:assm|AudioSubSystemMono:ASSM|CodecInit:CI
+ 20. Source assignments for AudioInterface:assm|AudioSubSystemMono:ASSM|CodecInit:CI|I2CTx:TX|I2CTxCu:CU
+ 21. Parameter Settings for User Entity Instance: MechDebouncer:OBJ1|debouncer:obj1
+ 22. Parameter Settings for User Entity Instance: MechDebouncer:OBJ1|debouncer:obj2
+ 23. Parameter Settings for User Entity Instance: MechDebouncer:OBJ1|debouncer:obj3
+ 24. Parameter Settings for User Entity Instance: MechDebouncer:OBJ1|debouncer:obj4
+ 25. Parameter Settings for User Entity Instance: MechDebouncer:OBJ1|debouncer:obj5
+ 26. Parameter Settings for User Entity Instance: MechDebouncer:OBJ1|debouncer:obj6
+ 27. Parameter Settings for User Entity Instance: MechDebouncer:OBJ1|debouncer:obj7
+ 28. Parameter Settings for User Entity Instance: MechDebouncer:OBJ1|debouncer:obj8
+ 29. Parameter Settings for User Entity Instance: MechDebouncer:OBJ1|debouncer:obj9
+ 30. Parameter Settings for User Entity Instance: MechDebouncer:OBJ1|debouncer:obj10
+ 31. Parameter Settings for User Entity Instance: AudioInterface:assm
+ 32. Port Connectivity Checks: "AudioInterface:assm|AudioSubSystemMono:ASSM|AudTx:AO"
+ 33. Port Connectivity Checks: "AudioInterface:assm|AudioSubSystemMono:ASSM|AudRx:AI"
+ 34. Port Connectivity Checks: "AudioInterface:assm|AudioSubSystemMono:ASSM|CodecInit:CI"
+ 35. Port Connectivity Checks: "AudioInterface:assm"
+ 36. Post-Synthesis Netlist Statistics for Top Partition
+ 37. Elapsed Time Per Partition
+ 38. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2020  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++----------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                     ;
++------------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Mon Dec 06 20:39:57 2021       ;
+; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
+; Revision Name                      ; Final                                       ;
+; Top-level Entity Name              ; smdb                                        ;
+; Family                             ; Cyclone IV E                                ;
+; Total logic elements               ; 1,033                                       ;
+;     Total combinational functions  ; 1,029                                       ;
+;     Dedicated logic registers      ; 359                                         ;
+; Total registers                    ; 359                                         ;
+; Total pins                         ; 114                                         ;
+; Total virtual pins                 ; 0                                           ;
+; Total memory bits                  ; 0                                           ;
+; Embedded Multiplier 9-bit elements ; 0                                           ;
+; Total PLLs                         ; 0                                           ;
++------------------------------------+---------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                              ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                           ; Setting            ; Default Value      ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                           ; EP4CE115F29C7      ;                    ;
+; Top-level entity name                                            ; smdb               ; Final              ;
+; Family name                                                      ; Cyclone IV E       ; Cyclone V          ;
+; Use smart compilation                                            ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                      ; Off                ; Off                ;
+; Restructure Multiplexers                                         ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                              ; Off                ; Off                ;
+; Preserve fewer node names                                        ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                    ; Enable             ; Enable             ;
+; Verilog Version                                                  ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                     ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                         ; Auto               ; Auto               ;
+; Safe State Machine                                               ; Off                ; Off                ;
+; Extract Verilog State Machines                                   ; On                 ; On                 ;
+; Extract VHDL State Machines                                      ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                       ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                   ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                          ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                        ; On                 ; On                 ;
+; Parallel Synthesis                                               ; On                 ; On                 ;
+; DSP Block Balancing                                              ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                               ; On                 ; On                 ;
+; Power-Up Don't Care                                              ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                     ; Off                ; Off                ;
+; Remove Duplicate Registers                                       ; On                 ; On                 ;
+; Ignore CARRY Buffers                                             ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                           ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                            ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                        ; Off                ; Off                ;
+; Ignore LCELL Buffers                                             ; Off                ; Off                ;
+; Ignore SOFT Buffers                                              ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                   ; Off                ; Off                ;
+; Optimization Technique                                           ; Balanced           ; Balanced           ;
+; Carry Chain Length                                               ; 70                 ; 70                 ;
+; Auto Carry Chains                                                ; On                 ; On                 ;
+; Auto Open-Drain Pins                                             ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                            ; Off                ; Off                ;
+; Auto ROM Replacement                                             ; On                 ; On                 ;
+; Auto RAM Replacement                                             ; On                 ; On                 ;
+; Auto DSP Block Replacement                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                  ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                  ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                    ; On                 ; On                 ;
+; Strict RAM Replacement                                           ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                           ; Off                ; Off                ;
+; Auto RAM Block Balancing                                         ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                ; Off                ; Off                ;
+; Auto Resource Sharing                                            ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                    ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing              ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                ; Off                ; Off                ;
+; Timing-Driven Synthesis                                          ; On                 ; On                 ;
+; Report Parameter Settings                                        ; On                 ; On                 ;
+; Report Source Assignments                                        ; On                 ; On                 ;
+; Report Connectivity Checks                                       ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                               ; Off                ; Off                ;
+; Synchronization Register Chain Length                            ; 2                  ; 2                  ;
+; Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
+; HDL message level                                                ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                  ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report         ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report               ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report        ; 100                ; 100                ;
+; Clock MUX Protection                                             ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                      ; Off                ; Off                ;
+; Block Design Naming                                              ; Auto               ; Auto               ;
+; SDC constraint protection                                        ; Off                ; Off                ;
+; Synthesis Effort                                                 ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal     ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                             ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                               ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                      ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                           ; On                 ; On                 ;
++------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 16          ;
+; Maximum allowed            ; 8           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 8           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processor 3            ;   0.0%      ;
+;     Processor 4            ;   0.0%      ;
+;     Processor 5            ;   0.0%      ;
+;     Processor 6            ;   0.0%      ;
+;     Processors 7-8         ;   0.0%      ;
++----------------------------+-------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                 ;
++----------------------------------+-----------------+-----------------+---------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                          ; Library ;
++----------------------------------+-----------------+-----------------+---------------------------------------------------------------------------------------+---------+
+; filesIP/AudioInterface.vhd       ; yes             ; User VHDL File  ; C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/filesIP/AudioInterface.vhd     ;         ;
+; filesIP/AudioSubSystemMono.vhd   ; yes             ; User VHDL File  ; C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/filesIP/AudioSubSystemMono.vhd ;         ;
+; filesIP/AudTxRx.vhd              ; yes             ; User VHDL File  ; C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/filesIP/AudTxRx.vhd            ;         ;
+; filesIP/ClockGen.vhd             ; yes             ; User VHDL File  ; C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/filesIP/ClockGen.vhd           ;         ;
+; filesIP/CodecInit.vhd            ; yes             ; User VHDL File  ; C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/filesIP/CodecInit.vhd          ;         ;
+; filesIP/I2CTx.vhd                ; yes             ; User VHDL File  ; C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/filesIP/I2CTx.vhd              ;         ;
+; filesIP/I2CTxCu.vhd              ; yes             ; User VHDL File  ; C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/filesIP/I2CTxCu.vhd            ;         ;
+; ToneGenerator.vhd                ; yes             ; User VHDL File  ; C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/ToneGenerator.vhd              ;         ;
+; smdb.vhd                         ; yes             ; User VHDL File  ; C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/smdb.vhd                       ;         ;
+; scheduler.vhd                    ; yes             ; User VHDL File  ; C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/scheduler.vhd                  ;         ;
+; PreScale.vhd                     ; yes             ; User VHDL File  ; C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/PreScale.vhd                   ;         ;
+; MechDebouncer.vhd                ; yes             ; User VHDL File  ; C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/MechDebouncer.vhd              ;         ;
+; io_controller.vhd                ; yes             ; User VHDL File  ; C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/io_controller.vhd              ;         ;
+; definitions_package.vhd          ; yes             ; User VHDL File  ; C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/definitions_package.vhd        ;         ;
+; debouncer.vhd                    ; yes             ; User VHDL File  ; C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/debouncer.vhd                  ;         ;
+; datapath.vhd                     ; yes             ; User VHDL File  ; C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/datapath.vhd                   ;         ;
+; custom7seg.vhd                   ; yes             ; User VHDL File  ; C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/custom7seg.vhd                 ;         ;
+; control_unit.vhd                 ; yes             ; User VHDL File  ; C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/control_unit.vhd               ;         ;
+; asip.vhd                         ; yes             ; User VHDL File  ; C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/asip.vhd                       ;         ;
++----------------------------------+-----------------+-----------------+---------------------------------------------------------------------------------------+---------+
+
+
++--------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                  ;
++---------------------------------------------+----------------+
+; Resource                                    ; Usage          ;
++---------------------------------------------+----------------+
+; Estimated Total logic elements              ; 1,033          ;
+;                                             ;                ;
+; Total combinational functions               ; 1029           ;
+; Logic element usage by number of LUT inputs ;                ;
+;     -- 4 input functions                    ; 671            ;
+;     -- 3 input functions                    ; 91             ;
+;     -- <=2 input functions                  ; 267            ;
+;                                             ;                ;
+; Logic elements by mode                      ;                ;
+;     -- normal mode                          ; 829            ;
+;     -- arithmetic mode                      ; 200            ;
+;                                             ;                ;
+; Total registers                             ; 359            ;
+;     -- Dedicated logic registers            ; 359            ;
+;     -- I/O registers                        ; 0              ;
+;                                             ;                ;
+; I/O pins                                    ; 114            ;
+;                                             ;                ;
+; Embedded Multiplier 9-bit elements          ; 0              ;
+;                                             ;                ;
+; Maximum fan-out node                        ; CLOCK_50~input ;
+; Maximum fan-out                             ; 173            ;
+; Total fan-out                               ; 4663           ;
+; Average fan-out                             ; 2.88           ;
++---------------------------------------------+----------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                 ;
++---------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------+--------------------+--------------+
+; Compilation Hierarchy Node      ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                ; Entity Name        ; Library Name ;
++---------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------+--------------------+--------------+
+; |smdb                           ; 1029 (257)          ; 359 (32)                  ; 0           ; 0            ; 0       ; 0         ; 114  ; 0            ; |smdb                                                                              ; smdb               ; work         ;
+;    |AudioInterface:assm|        ; 172 (0)             ; 110 (1)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |smdb|AudioInterface:assm                                                          ; AudioInterface     ; work         ;
+;       |AudioSubSystemMono:ASSM| ; 172 (0)             ; 109 (0)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |smdb|AudioInterface:assm|AudioSubSystemMono:ASSM                                  ; AudioSubSystemMono ; work         ;
+;          |AudTx:AO|             ; 35 (35)             ; 32 (32)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |smdb|AudioInterface:assm|AudioSubSystemMono:ASSM|AudTx:AO                         ; AudTx              ; work         ;
+;          |ClockGen:CG|          ; 37 (37)             ; 27 (27)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |smdb|AudioInterface:assm|AudioSubSystemMono:ASSM|ClockGen:CG                      ; ClockGen           ; work         ;
+;          |CodecInit:CI|         ; 100 (26)            ; 47 (9)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |smdb|AudioInterface:assm|AudioSubSystemMono:ASSM|CodecInit:CI                     ; CodecInit          ; work         ;
+;             |I2CTx:TX|          ; 74 (0)              ; 38 (0)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |smdb|AudioInterface:assm|AudioSubSystemMono:ASSM|CodecInit:CI|I2CTx:TX            ; I2CTx              ; work         ;
+;                |I2CTxCu:CU|     ; 38 (38)             ; 9 (9)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |smdb|AudioInterface:assm|AudioSubSystemMono:ASSM|CodecInit:CI|I2CTx:TX|I2CTxCu:CU ; I2CTxCu            ; work         ;
+;                |I2CTxDp:DP|     ; 36 (36)             ; 29 (29)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |smdb|AudioInterface:assm|AudioSubSystemMono:ASSM|CodecInit:CI|I2CTx:TX|I2CTxDp:DP ; I2CTxDp            ; work         ;
+;          |Synchroniser:SYN|     ; 0 (0)               ; 3 (3)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |smdb|AudioInterface:assm|AudioSubSystemMono:ASSM|Synchroniser:SYN                 ; Synchroniser       ; work         ;
+;    |MechDebouncer:OBJ1|         ; 101 (0)             ; 50 (0)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |smdb|MechDebouncer:OBJ1                                                           ; MechDebouncer      ; work         ;
+;       |debouncer:obj10|         ; 10 (10)             ; 5 (5)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |smdb|MechDebouncer:OBJ1|debouncer:obj10                                           ; debouncer          ; work         ;
+;       |debouncer:obj1|          ; 10 (10)             ; 5 (5)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |smdb|MechDebouncer:OBJ1|debouncer:obj1                                            ; debouncer          ; work         ;
+;       |debouncer:obj2|          ; 10 (10)             ; 5 (5)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |smdb|MechDebouncer:OBJ1|debouncer:obj2                                            ; debouncer          ; work         ;
+;       |debouncer:obj3|          ; 10 (10)             ; 5 (5)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |smdb|MechDebouncer:OBJ1|debouncer:obj3                                            ; debouncer          ; work         ;
+;       |debouncer:obj4|          ; 10 (10)             ; 5 (5)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |smdb|MechDebouncer:OBJ1|debouncer:obj4                                            ; debouncer          ; work         ;
+;       |debouncer:obj5|          ; 10 (10)             ; 5 (5)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |smdb|MechDebouncer:OBJ1|debouncer:obj5                                            ; debouncer          ; work         ;
+;       |debouncer:obj6|          ; 10 (10)             ; 5 (5)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |smdb|MechDebouncer:OBJ1|debouncer:obj6                                            ; debouncer          ; work         ;
+;       |debouncer:obj7|          ; 10 (10)             ; 5 (5)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |smdb|MechDebouncer:OBJ1|debouncer:obj7                                            ; debouncer          ; work         ;
+;       |debouncer:obj8|          ; 11 (11)             ; 5 (5)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |smdb|MechDebouncer:OBJ1|debouncer:obj8                                            ; debouncer          ; work         ;
+;       |debouncer:obj9|          ; 10 (10)             ; 5 (5)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |smdb|MechDebouncer:OBJ1|debouncer:obj9                                            ; debouncer          ; work         ;
+;    |PreScale:OBJ2|              ; 98 (98)             ; 92 (92)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |smdb|PreScale:OBJ2                                                                ; PreScale           ; work         ;
+;    |ToneGenerator:OBJ4|         ; 22 (22)             ; 22 (22)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |smdb|ToneGenerator:OBJ4                                                           ; ToneGenerator      ; work         ;
+;    |asip:OBJ3|                  ; 379 (0)             ; 53 (0)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |smdb|asip:OBJ3                                                                    ; asip               ; work         ;
+;       |datapath:OBJ3|           ; 134 (6)             ; 53 (4)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |smdb|asip:OBJ3|datapath:OBJ3                                                      ; datapath           ; work         ;
+;          |scheduler:OBJ1|       ; 128 (128)           ; 49 (49)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |smdb|asip:OBJ3|datapath:OBJ3|scheduler:OBJ1                                       ; scheduler          ; work         ;
+;       |io_controller:OBJ1|      ; 245 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |smdb|asip:OBJ3|io_controller:OBJ1                                                 ; io_controller      ; work         ;
+;          |custom7seg:OBJ0|      ; 26 (26)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |smdb|asip:OBJ3|io_controller:OBJ1|custom7seg:OBJ0                                 ; custom7seg         ; work         ;
+;          |custom7seg:OBJ1|      ; 34 (34)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |smdb|asip:OBJ3|io_controller:OBJ1|custom7seg:OBJ1                                 ; custom7seg         ; work         ;
+;          |custom7seg:OBJ2|      ; 30 (30)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |smdb|asip:OBJ3|io_controller:OBJ1|custom7seg:OBJ2                                 ; custom7seg         ; work         ;
+;          |custom7seg:OBJ3|      ; 32 (32)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |smdb|asip:OBJ3|io_controller:OBJ1|custom7seg:OBJ3                                 ; custom7seg         ; work         ;
+;          |custom7seg:OBJ4|      ; 29 (29)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |smdb|asip:OBJ3|io_controller:OBJ1|custom7seg:OBJ4                                 ; custom7seg         ; work         ;
+;          |custom7seg:OBJ5|      ; 33 (33)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |smdb|asip:OBJ3|io_controller:OBJ1|custom7seg:OBJ5                                 ; custom7seg         ; work         ;
+;          |custom7seg:OBJ6|      ; 29 (29)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |smdb|asip:OBJ3|io_controller:OBJ1|custom7seg:OBJ6                                 ; custom7seg         ; work         ;
+;          |custom7seg:OBJ7|      ; 32 (32)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |smdb|asip:OBJ3|io_controller:OBJ1|custom7seg:OBJ7                                 ; custom7seg         ; work         ;
++---------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------+--------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  Minimal Bits
++----------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |smdb|AudioInterface:assm|AudioSubSystemMono:ASSM|CodecInit:CI|\CU:State                                               ;
++----------------+-----------------------+-----------------------+-----------------------+-----------------------+-----------------------+
+; Name           ; \CU:State.state_bit_4 ; \CU:State.state_bit_3 ; \CU:State.state_bit_2 ; \CU:State.state_bit_1 ; \CU:State.state_bit_0 ;
++----------------+-----------------------+-----------------------+-----------------------+-----------------------+-----------------------+
+; \CU:State.Idle ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ;
+; \CU:State.WE   ; 0                     ; 0                     ; 0                     ; 0                     ; 1                     ;
+; \CU:State.W0   ; 0                     ; 0                     ; 0                     ; 1                     ; 0                     ;
+; \CU:State.X0   ; 0                     ; 0                     ; 0                     ; 1                     ; 1                     ;
+; \CU:State.W1   ; 0                     ; 0                     ; 1                     ; 1                     ; 0                     ;
+; \CU:State.X1   ; 0                     ; 0                     ; 1                     ; 1                     ; 1                     ;
+; \CU:State.W2   ; 0                     ; 1                     ; 0                     ; 1                     ; 0                     ;
+; \CU:State.X2   ; 0                     ; 1                     ; 0                     ; 1                     ; 1                     ;
+; \CU:State.W3   ; 0                     ; 1                     ; 1                     ; 1                     ; 0                     ;
+; \CU:State.X3   ; 0                     ; 1                     ; 1                     ; 1                     ; 1                     ;
+; \CU:State.W4   ; 0                     ; 1                     ; 0                     ; 0                     ; 0                     ;
+; \CU:State.X4   ; 0                     ; 1                     ; 0                     ; 0                     ; 1                     ;
+; \CU:State.W5   ; 0                     ; 0                     ; 1                     ; 0                     ; 0                     ;
+; \CU:State.X5   ; 0                     ; 0                     ; 1                     ; 0                     ; 1                     ;
+; \CU:State.W6   ; 0                     ; 1                     ; 1                     ; 0                     ; 0                     ;
+; \CU:State.X6   ; 0                     ; 1                     ; 1                     ; 0                     ; 1                     ;
+; \CU:State.W7   ; 1                     ; 0                     ; 0                     ; 0                     ; 0                     ;
+; \CU:State.X7   ; 1                     ; 0                     ; 0                     ; 0                     ; 1                     ;
+; \CU:State.W8   ; 1                     ; 0                     ; 0                     ; 1                     ; 0                     ;
+; \CU:State.X8   ; 1                     ; 0                     ; 0                     ; 1                     ; 1                     ;
++----------------+-----------------------+-----------------------+-----------------------+-----------------------+-----------------------+
+
+
+Encoding Type:  Minimal Bits
++-------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |smdb|AudioInterface:assm|AudioSubSystemMono:ASSM|CodecInit:CI|I2CTx:TX|I2CTxCu:CU|PacketState          ;
++-----------------+-------------------------+-------------------------+-------------------------+-------------------------+
+; Name            ; PacketState.state_bit_3 ; PacketState.state_bit_2 ; PacketState.state_bit_1 ; PacketState.state_bit_0 ;
++-----------------+-------------------------+-------------------------+-------------------------+-------------------------+
+; PacketState.D7  ; 0                       ; 0                       ; 0                       ; 0                       ;
+; PacketState.D6  ; 0                       ; 0                       ; 1                       ; 0                       ;
+; PacketState.D5  ; 0                       ; 1                       ; 0                       ; 0                       ;
+; PacketState.D4  ; 0                       ; 1                       ; 1                       ; 0                       ;
+; PacketState.D3  ; 0                       ; 1                       ; 0                       ; 1                       ;
+; PacketState.D2  ; 0                       ; 1                       ; 1                       ; 1                       ;
+; PacketState.D1  ; 1                       ; 0                       ; 0                       ; 0                       ;
+; PacketState.D0  ; 0                       ; 0                       ; 1                       ; 1                       ;
+; PacketState.Ack ; 0                       ; 0                       ; 0                       ; 1                       ;
++-----------------+-------------------------+-------------------------+-------------------------+-------------------------+
+
+
+Encoding Type:  Minimal Bits
++---------------------------------------------------------------------------------------------------------------+
+; State Machine - |smdb|AudioInterface:assm|AudioSubSystemMono:ASSM|CodecInit:CI|I2CTx:TX|I2CTxCu:CU|CycleState ;
++---------------+------------------------+----------------------------------------------------------------------+
+; Name          ; CycleState.state_bit_1 ; CycleState.state_bit_0                                               ;
++---------------+------------------------+----------------------------------------------------------------------+
+; CycleState.C0 ; 0                      ; 0                                                                    ;
+; CycleState.C1 ; 0                      ; 1                                                                    ;
+; CycleState.C2 ; 1                      ; 1                                                                    ;
+; CycleState.C3 ; 1                      ; 0                                                                    ;
++---------------+------------------------+----------------------------------------------------------------------+
+
+
+Encoding Type:  Minimal Bits
++--------------------------------------------------------------------------------------------------------------+
+; State Machine - |smdb|AudioInterface:assm|AudioSubSystemMono:ASSM|CodecInit:CI|I2CTx:TX|I2CTxCu:CU|MainState ;
++-------------------+-----------------------+-----------------------+------------------------------------------+
+; Name              ; MainState.state_bit_2 ; MainState.state_bit_1 ; MainState.state_bit_0                    ;
++-------------------+-----------------------+-----------------------+------------------------------------------+
+; MainState.idle    ; 0                     ; 0                     ; 0                                        ;
+; MainState.start   ; 0                     ; 0                     ; 1                                        ;
+; MainState.Packet0 ; 0                     ; 1                     ; 0                                        ;
+; MainState.Packet1 ; 0                     ; 1                     ; 1                                        ;
+; MainState.Packet2 ; 1                     ; 1                     ; 0                                        ;
+; MainState.stop    ; 1                     ; 0                     ; 1                                        ;
+; MainState.Mwait   ; 1                     ; 0                     ; 0                                        ;
++-------------------+-----------------------+-----------------------+------------------------------------------+
+
+
+Encoding Type:  One-Hot
++----------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |smdb|asip:OBJ3|datapath:OBJ3|scheduler:OBJ1|progState                                                                 ;
++---------------------+---------------------+--------------------+-----------------+-----------------+-----------------+-----------------+
+; Name                ; progState.progError ; progState.progIdle ; progState.prog4 ; progState.prog3 ; progState.prog2 ; progState.prog1 ;
++---------------------+---------------------+--------------------+-----------------+-----------------+-----------------+-----------------+
+; progState.prog1     ; 0                   ; 0                  ; 0               ; 0               ; 0               ; 0               ;
+; progState.prog2     ; 0                   ; 0                  ; 0               ; 0               ; 1               ; 1               ;
+; progState.prog3     ; 0                   ; 0                  ; 0               ; 1               ; 0               ; 1               ;
+; progState.prog4     ; 0                   ; 0                  ; 1               ; 0               ; 0               ; 1               ;
+; progState.progIdle  ; 0                   ; 1                  ; 0               ; 0               ; 0               ; 1               ;
+; progState.progError ; 1                   ; 0                  ; 0               ; 0               ; 0               ; 1               ;
++---------------------+---------------------+--------------------+-----------------+-----------------+-----------------+-----------------+
+
+
++--------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                 ;
++---------------------------------------------------------------------------+----------------------------------------+
+; Register name                                                             ; Reason for Removal                     ;
++---------------------------------------------------------------------------+----------------------------------------+
+; AudioInterface:assm|AudioSubSystemMono:ASSM|CodecInit:CI|SwitchReg[0..4]  ; Stuck at GND due to stuck port data_in ;
+; AudioInterface:assm|AudioSubSystemMono:ASSM|CodecInit:CI|Mode[1]          ; Stuck at VCC due to stuck port data_in ;
+; AudioInterface:assm|AudioSubSystemMono:ASSM|CodecInit:CI|Mode[0]          ; Stuck at GND due to stuck port data_in ;
+; AudioInterface:assm|AudioSubSystemMono:ASSM|CodecInit:CI|SwitchReg[5..15] ; Stuck at GND due to stuck port data_in ;
+; AudioInterface:assm|AudioSubSystemMono:ASSM|CodecInit:CI|SlaveReg[0..15]  ; Stuck at GND due to stuck port data_in ;
+; AudioInterface:assm|AudioSubSystemMono:ASSM|AudTx:AO|RTxShiftReg[0]       ; Stuck at GND due to stuck port data_in ;
+; AudioInterface:assm|AudioSubSystemMono:ASSM|AudTx:AO|LTxShiftReg[0]       ; Stuck at GND due to stuck port data_in ;
+; AudioInterface:assm|AudioSubSystemMono:ASSM|AudTx:AO|RTxShiftReg[1,2]     ; Stuck at GND due to stuck port data_in ;
+; AudioInterface:assm|AudioSubSystemMono:ASSM|AudTx:AO|LTxShiftReg[1]       ; Stuck at GND due to stuck port data_in ;
+; AudioInterface:assm|AudioSubSystemMono:ASSM|AudTx:AO|RTxShiftReg[3]       ; Stuck at GND due to stuck port data_in ;
+; AudioInterface:assm|AudioSubSystemMono:ASSM|AudTx:AO|LTxShiftReg[2]       ; Stuck at GND due to stuck port data_in ;
+; AudioInterface:assm|AudioSubSystemMono:ASSM|AudTx:AO|RTxShiftReg[4]       ; Stuck at GND due to stuck port data_in ;
+; AudioInterface:assm|AudioSubSystemMono:ASSM|AudTx:AO|LTxShiftReg[3]       ; Stuck at GND due to stuck port data_in ;
+; AudioInterface:assm|AudioSubSystemMono:ASSM|AudTx:AO|RTxShiftReg[5]       ; Stuck at GND due to stuck port data_in ;
+; AudioInterface:assm|AudioSubSystemMono:ASSM|AudTx:AO|LTxShiftReg[4]       ; Stuck at GND due to stuck port data_in ;
+; AudioInterface:assm|AudioSubSystemMono:ASSM|AudTx:AO|RTxShiftReg[6]       ; Stuck at GND due to stuck port data_in ;
+; AudioInterface:assm|AudioSubSystemMono:ASSM|AudTx:AO|LTxShiftReg[5]       ; Stuck at GND due to stuck port data_in ;
+; AudioInterface:assm|AudioSubSystemMono:ASSM|AudTx:AO|RTxShiftReg[7]       ; Stuck at GND due to stuck port data_in ;
+; AudioInterface:assm|AudioSubSystemMono:ASSM|AudTx:AO|LTxShiftReg[6]       ; Stuck at GND due to stuck port data_in ;
+; AudioInterface:assm|AudioSubSystemMono:ASSM|AudTx:AO|RTxShiftReg[8]       ; Stuck at GND due to stuck port data_in ;
+; AudioInterface:assm|AudioSubSystemMono:ASSM|AudTx:AO|LTxShiftReg[7]       ; Stuck at GND due to stuck port data_in ;
+; AudioInterface:assm|AudioSubSystemMono:ASSM|AudTx:AO|RTxShiftReg[9]       ; Stuck at GND due to stuck port data_in ;
+; AudioInterface:assm|AudioSubSystemMono:ASSM|AudTx:AO|LTxShiftReg[8]       ; Stuck at GND due to stuck port data_in ;
+; AudioInterface:assm|AudioSubSystemMono:ASSM|AudTx:AO|RTxShiftReg[10]      ; Stuck at GND due to stuck port data_in ;
+; AudioInterface:assm|AudioSubSystemMono:ASSM|AudTx:AO|LTxShiftReg[9]       ; Stuck at GND due to stuck port data_in ;
+; AudioInterface:assm|AudioSubSystemMono:ASSM|AudTx:AO|RTxShiftReg[11]      ; Stuck at GND due to stuck port data_in ;
+; AudioInterface:assm|AudioSubSystemMono:ASSM|AudTx:AO|LTxShiftReg[10]      ; Stuck at GND due to stuck port data_in ;
+; AudioInterface:assm|AudioSubSystemMono:ASSM|AudTx:AO|RTxShiftReg[12]      ; Stuck at GND due to stuck port data_in ;
+; AudioInterface:assm|AudioSubSystemMono:ASSM|AudTx:AO|LTxShiftReg[11]      ; Stuck at GND due to stuck port data_in ;
+; AudioInterface:assm|AudioSubSystemMono:ASSM|AudTx:AO|RTxShiftReg[13]      ; Stuck at GND due to stuck port data_in ;
+; AudioInterface:assm|AudioSubSystemMono:ASSM|AudTx:AO|LTxShiftReg[12]      ; Stuck at GND due to stuck port data_in ;
+; AudioInterface:assm|AudioSubSystemMono:ASSM|AudTx:AO|RTxShiftReg[14]      ; Stuck at GND due to stuck port data_in ;
+; AudioInterface:assm|AudioSubSystemMono:ASSM|AudTx:AO|LTxShiftReg[13]      ; Stuck at GND due to stuck port data_in ;
+; AudioInterface:assm|AudioSubSystemMono:ASSM|AudTx:AO|RTxShiftReg[15]      ; Stuck at GND due to stuck port data_in ;
+; AudioInterface:assm|AudioSubSystemMono:ASSM|AudTx:AO|LTxShiftReg[14,15]   ; Stuck at GND due to stuck port data_in ;
+; Total Number of Removed Registers = 66                                    ;                                        ;
++---------------------------------------------------------------------------+----------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                                             ;
++---------------------------------------------------------------------+---------------------------+-----------------------------------------------------------------------+
+; Register name                                                       ; Reason for Removal        ; Registers Removed due to This Register                                ;
++---------------------------------------------------------------------+---------------------------+-----------------------------------------------------------------------+
+; AudioInterface:assm|AudioSubSystemMono:ASSM|AudTx:AO|LTxShiftReg[0] ; Stuck at GND              ; AudioInterface:assm|AudioSubSystemMono:ASSM|AudTx:AO|LTxShiftReg[1],  ;
+;                                                                     ; due to stuck port data_in ; AudioInterface:assm|AudioSubSystemMono:ASSM|AudTx:AO|LTxShiftReg[2],  ;
+;                                                                     ;                           ; AudioInterface:assm|AudioSubSystemMono:ASSM|AudTx:AO|LTxShiftReg[3],  ;
+;                                                                     ;                           ; AudioInterface:assm|AudioSubSystemMono:ASSM|AudTx:AO|LTxShiftReg[4],  ;
+;                                                                     ;                           ; AudioInterface:assm|AudioSubSystemMono:ASSM|AudTx:AO|LTxShiftReg[5],  ;
+;                                                                     ;                           ; AudioInterface:assm|AudioSubSystemMono:ASSM|AudTx:AO|LTxShiftReg[6],  ;
+;                                                                     ;                           ; AudioInterface:assm|AudioSubSystemMono:ASSM|AudTx:AO|LTxShiftReg[7],  ;
+;                                                                     ;                           ; AudioInterface:assm|AudioSubSystemMono:ASSM|AudTx:AO|LTxShiftReg[8],  ;
+;                                                                     ;                           ; AudioInterface:assm|AudioSubSystemMono:ASSM|AudTx:AO|LTxShiftReg[9],  ;
+;                                                                     ;                           ; AudioInterface:assm|AudioSubSystemMono:ASSM|AudTx:AO|LTxShiftReg[10], ;
+;                                                                     ;                           ; AudioInterface:assm|AudioSubSystemMono:ASSM|AudTx:AO|LTxShiftReg[11], ;
+;                                                                     ;                           ; AudioInterface:assm|AudioSubSystemMono:ASSM|AudTx:AO|LTxShiftReg[12], ;
+;                                                                     ;                           ; AudioInterface:assm|AudioSubSystemMono:ASSM|AudTx:AO|LTxShiftReg[13], ;
+;                                                                     ;                           ; AudioInterface:assm|AudioSubSystemMono:ASSM|AudTx:AO|LTxShiftReg[14], ;
+;                                                                     ;                           ; AudioInterface:assm|AudioSubSystemMono:ASSM|AudTx:AO|LTxShiftReg[15]  ;
+; AudioInterface:assm|AudioSubSystemMono:ASSM|AudTx:AO|RTxShiftReg[1] ; Stuck at GND              ; AudioInterface:assm|AudioSubSystemMono:ASSM|AudTx:AO|RTxShiftReg[2],  ;
+;                                                                     ; due to stuck port data_in ; AudioInterface:assm|AudioSubSystemMono:ASSM|AudTx:AO|RTxShiftReg[3],  ;
+;                                                                     ;                           ; AudioInterface:assm|AudioSubSystemMono:ASSM|AudTx:AO|RTxShiftReg[4],  ;
+;                                                                     ;                           ; AudioInterface:assm|AudioSubSystemMono:ASSM|AudTx:AO|RTxShiftReg[5],  ;
+;                                                                     ;                           ; AudioInterface:assm|AudioSubSystemMono:ASSM|AudTx:AO|RTxShiftReg[6],  ;
+;                                                                     ;                           ; AudioInterface:assm|AudioSubSystemMono:ASSM|AudTx:AO|RTxShiftReg[7],  ;
+;                                                                     ;                           ; AudioInterface:assm|AudioSubSystemMono:ASSM|AudTx:AO|RTxShiftReg[8],  ;
+;                                                                     ;                           ; AudioInterface:assm|AudioSubSystemMono:ASSM|AudTx:AO|RTxShiftReg[9],  ;
+;                                                                     ;                           ; AudioInterface:assm|AudioSubSystemMono:ASSM|AudTx:AO|RTxShiftReg[10], ;
+;                                                                     ;                           ; AudioInterface:assm|AudioSubSystemMono:ASSM|AudTx:AO|RTxShiftReg[11], ;
+;                                                                     ;                           ; AudioInterface:assm|AudioSubSystemMono:ASSM|AudTx:AO|RTxShiftReg[12], ;
+;                                                                     ;                           ; AudioInterface:assm|AudioSubSystemMono:ASSM|AudTx:AO|RTxShiftReg[13], ;
+;                                                                     ;                           ; AudioInterface:assm|AudioSubSystemMono:ASSM|AudTx:AO|RTxShiftReg[14], ;
+;                                                                     ;                           ; AudioInterface:assm|AudioSubSystemMono:ASSM|AudTx:AO|RTxShiftReg[15]  ;
++---------------------------------------------------------------------+---------------------------+-----------------------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 359   ;
+; Number of registers using Synchronous Clear  ; 107   ;
+; Number of registers using Synchronous Load   ; 1     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 167   ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++--------------------------------------------------+
+; Inverted Register Statistics                     ;
++----------------------------------------+---------+
+; Inverted Register                      ; Fan out ;
++----------------------------------------+---------+
+; counter[0]                             ; 100     ;
+; counter[31]                            ; 2       ;
+; Total number of inverted registers = 2 ;         ;
++----------------------------------------+---------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                                                       ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                             ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------------------------------------+
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |smdb|AudioInterface:assm|AudioSubSystemMono:ASSM|CodecInit:CI|AddrCnt[2]                              ;
+; 4:1                ; 14 bits   ; 28 LEs        ; 28 LEs               ; 0 LEs                  ; Yes        ; |smdb|AudioInterface:assm|AudioSubSystemMono:ASSM|CodecInit:CI|I2CTx:TX|I2CTxDp:DP|RegQ[27]            ;
+; 4:1                ; 13 bits   ; 26 LEs        ; 26 LEs               ; 0 LEs                  ; Yes        ; |smdb|AudioInterface:assm|AudioSubSystemMono:ASSM|CodecInit:CI|I2CTx:TX|I2CTxDp:DP|RegQ[2]             ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |smdb|MechDebouncer:OBJ1|debouncer:obj5|counter[0]                                                     ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |smdb|MechDebouncer:OBJ1|debouncer:obj6|counter[1]                                                     ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |smdb|MechDebouncer:OBJ1|debouncer:obj7|counter[2]                                                     ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |smdb|MechDebouncer:OBJ1|debouncer:obj3|counter[2]                                                     ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |smdb|MechDebouncer:OBJ1|debouncer:obj4|counter[2]                                                     ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |smdb|MechDebouncer:OBJ1|debouncer:obj1|counter[1]                                                     ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |smdb|MechDebouncer:OBJ1|debouncer:obj2|counter[3]                                                     ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |smdb|MechDebouncer:OBJ1|debouncer:obj8|counter[0]                                                     ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |smdb|MechDebouncer:OBJ1|debouncer:obj9|counter[1]                                                     ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |smdb|MechDebouncer:OBJ1|debouncer:obj10|counter[3]                                                    ;
+; 9:1                ; 32 bits   ; 192 LEs       ; 32 LEs               ; 160 LEs                ; Yes        ; |smdb|asip:OBJ3|datapath:OBJ3|scheduler:OBJ1|counter[9]                                                ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |smdb|AudioOut[15]                                                                                     ;
+; 9:1                ; 2 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |smdb|AudioInterface:assm|AudioSubSystemMono:ASSM|CodecInit:CI|I2CTx:TX|I2CTxCu:CU|NextCycleState.C0   ;
+; 14:1               ; 2 bits    ; 18 LEs        ; 6 LEs                ; 12 LEs                 ; No         ; |smdb|AudioInterface:assm|AudioSubSystemMono:ASSM|CodecInit:CI|I2CTx:TX|I2CTxCu:CU|NextMainState.idle  ;
+; 19:1               ; 2 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; No         ; |smdb|AudioInterface:assm|AudioSubSystemMono:ASSM|CodecInit:CI|I2CTx:TX|I2CTxCu:CU|NextPacketState.Ack ;
+; 30:1               ; 2 bits    ; 40 LEs        ; 40 LEs               ; 0 LEs                  ; No         ; |smdb|AudioInterface:assm|AudioSubSystemMono:ASSM|CodecInit:CI|\CU:NextState.Idle                      ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------+
+; Source assignments for AudioInterface:assm|AudioSubSystemMono:ASSM|Synchroniser:SYN ;
++---------------------+-------+------+------------------------------------------------+
+; Assignment          ; Value ; From ; To                                             ;
++---------------------+-------+------+------------------------------------------------+
+; FAST_INPUT_REGISTER ; on    ; -    ; BclkIn                                         ;
+; FAST_INPUT_REGISTER ; on    ; -    ; AdcLrcIn                                       ;
+; FAST_INPUT_REGISTER ; on    ; -    ; DacLrcIn                                       ;
+; FAST_INPUT_REGISTER ; on    ; -    ; AdcDatIn                                       ;
++---------------------+-------+------+------------------------------------------------+
+
+
++---------------------------------------------------------------------------------+
+; Source assignments for AudioInterface:assm|AudioSubSystemMono:ASSM|CodecInit:CI ;
++--------------------------+--------------+------+--------------------------------+
+; Assignment               ; Value        ; From ; To                             ;
++--------------------------+--------------+------+--------------------------------+
+; STATE_MACHINE_PROCESSING ; MINIMAL_BITS ; -    ; CU:State                       ;
++--------------------------+--------------+------+--------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------+
+; Source assignments for AudioInterface:assm|AudioSubSystemMono:ASSM|CodecInit:CI|I2CTx:TX|I2CTxCu:CU ;
++------------------------------+--------------+------+------------------------------------------------+
+; Assignment                   ; Value        ; From ; To                                             ;
++------------------------------+--------------+------+------------------------------------------------+
+; STATE_MACHINE_PROCESSING     ; MINIMAL_BITS ; -    ; PacketState                                    ;
+; STATE_MACHINE_PROCESSING     ; MINIMAL_BITS ; -    ; CycleState                                     ;
+; STATE_MACHINE_PROCESSING     ; MINIMAL_BITS ; -    ; MainState                                      ;
+; IGNORE_LCELL_BUFFERS         ; off          ; -    ; BadAck                                         ;
+; REMOVE_REDUNDANT_LOGIC_CELLS ; off          ; -    ; BadAck                                         ;
++------------------------------+--------------+------+------------------------------------------------+
+
+
++--------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: MechDebouncer:OBJ1|debouncer:obj1 ;
++----------------+-------+-------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                  ;
++----------------+-------+-------------------------------------------------------+
+; timeout_cycles ; 10    ; Signed Integer                                        ;
++----------------+-------+-------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: MechDebouncer:OBJ1|debouncer:obj2 ;
++----------------+-------+-------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                  ;
++----------------+-------+-------------------------------------------------------+
+; timeout_cycles ; 10    ; Signed Integer                                        ;
++----------------+-------+-------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: MechDebouncer:OBJ1|debouncer:obj3 ;
++----------------+-------+-------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                  ;
++----------------+-------+-------------------------------------------------------+
+; timeout_cycles ; 10    ; Signed Integer                                        ;
++----------------+-------+-------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: MechDebouncer:OBJ1|debouncer:obj4 ;
++----------------+-------+-------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                  ;
++----------------+-------+-------------------------------------------------------+
+; timeout_cycles ; 10    ; Signed Integer                                        ;
++----------------+-------+-------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: MechDebouncer:OBJ1|debouncer:obj5 ;
++----------------+-------+-------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                  ;
++----------------+-------+-------------------------------------------------------+
+; timeout_cycles ; 10    ; Signed Integer                                        ;
++----------------+-------+-------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: MechDebouncer:OBJ1|debouncer:obj6 ;
++----------------+-------+-------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                  ;
++----------------+-------+-------------------------------------------------------+
+; timeout_cycles ; 10    ; Signed Integer                                        ;
++----------------+-------+-------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: MechDebouncer:OBJ1|debouncer:obj7 ;
++----------------+-------+-------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                  ;
++----------------+-------+-------------------------------------------------------+
+; timeout_cycles ; 10    ; Signed Integer                                        ;
++----------------+-------+-------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: MechDebouncer:OBJ1|debouncer:obj8 ;
++----------------+-------+-------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                  ;
++----------------+-------+-------------------------------------------------------+
+; timeout_cycles ; 10    ; Signed Integer                                        ;
++----------------+-------+-------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: MechDebouncer:OBJ1|debouncer:obj9 ;
++----------------+-------+-------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                  ;
++----------------+-------+-------------------------------------------------------+
+; timeout_cycles ; 10    ; Signed Integer                                        ;
++----------------+-------+-------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: MechDebouncer:OBJ1|debouncer:obj10 ;
++----------------+-------+--------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                   ;
++----------------+-------+--------------------------------------------------------+
+; timeout_cycles ; 10    ; Signed Integer                                         ;
++----------------+-------+--------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: AudioInterface:assm ;
++----------------+-------+-----------------------------------------+
+; Parameter Name ; Value ; Type                                    ;
++----------------+-------+-----------------------------------------+
+; sid            ; 37700 ; Signed Integer                          ;
++----------------+-------+-----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------+
+; Port Connectivity Checks: "AudioInterface:assm|AudioSubSystemMono:ASSM|AudTx:AO" ;
++---------------+-------+----------+-----------------------------------------------+
+; Port          ; Type  ; Severity ; Details                                       ;
++---------------+-------+----------+-----------------------------------------------+
+; laudio[15..0] ; Input ; Info     ; Stuck at GND                                  ;
+; raudio[15..0] ; Input ; Info     ; Stuck at GND                                  ;
++---------------+-------+----------+-----------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "AudioInterface:assm|AudioSubSystemMono:ASSM|AudRx:AI"                                        ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port          ; Type   ; Severity ; Details                                                                             ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+; laudio[15..0] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; raudio[15..0] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "AudioInterface:assm|AudioSubSystemMono:ASSM|CodecInit:CI" ;
++------------+-------+----------+------------------------------------------------------+
+; Port       ; Type  ; Severity ; Details                                              ;
++------------+-------+----------+------------------------------------------------------+
+; modein[1]  ; Input ; Info     ; Stuck at VCC                                         ;
+; modein[0]  ; Input ; Info     ; Stuck at GND                                         ;
+; switchword ; Input ; Info     ; Stuck at GND                                         ;
++------------+-------+----------+------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "AudioInterface:assm"                                                                   ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
+; Port    ; Type   ; Severity ; Details                                                                             ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
+; audioin ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 114                         ;
+; cycloneiii_ff         ; 359                         ;
+;     ENA               ; 132                         ;
+;     ENA SCLR          ; 34                          ;
+;     ENA SLD           ; 1                           ;
+;     SCLR              ; 73                          ;
+;     plain             ; 119                         ;
+; cycloneiii_io_obuf    ; 1                           ;
+; cycloneiii_lcell_comb ; 1038                        ;
+;     arith             ; 200                         ;
+;         2 data inputs ; 181                         ;
+;         3 data inputs ; 19                          ;
+;     normal            ; 838                         ;
+;         0 data inputs ; 1                           ;
+;         1 data inputs ; 17                          ;
+;         2 data inputs ; 77                          ;
+;         3 data inputs ; 72                          ;
+;         4 data inputs ; 671                         ;
+;                       ;                             ;
+; Max LUT depth         ; 7.10                        ;
+; Average LUT depth     ; 3.46                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:03     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+    Info: Processing started: Mon Dec 06 20:39:48 2021
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Final -c Final
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 8 of the 8 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file filesip/audiointerface.vhd
+    Info (12022): Found design unit 1: AudioInterface-Structural File: C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/filesIP/AudioInterface.vhd Line: 22
+    Info (12023): Found entity 1: AudioInterface File: C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/filesIP/AudioInterface.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file filesip/audiosubsystemmono.vhd
+    Info (12022): Found design unit 1: AudioSubSystemMono-Structural File: C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/filesIP/AudioSubSystemMono.vhd Line: 26
+    Info (12023): Found entity 1: AudioSubSystemMono File: C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/filesIP/AudioSubSystemMono.vhd Line: 9
+Info (12021): Found 4 design units, including 2 entities, in source file filesip/audtxrx.vhd
+    Info (12022): Found design unit 1: AudTx-dataflow File: C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/filesIP/AudTxRx.vhd Line: 18
+    Info (12022): Found design unit 2: AudRx-dataflow File: C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/filesIP/AudTxRx.vhd Line: 53
+    Info (12023): Found entity 1: AudTx File: C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/filesIP/AudTxRx.vhd Line: 12
+    Info (12023): Found entity 2: AudRx File: C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/filesIP/AudTxRx.vhd Line: 46
+Info (12021): Found 4 design units, including 2 entities, in source file filesip/clockgen.vhd
+    Info (12022): Found design unit 1: ClockGen-dataflow File: C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/filesIP/ClockGen.vhd Line: 11
+    Info (12022): Found design unit 2: Synchroniser-rtl File: C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/filesIP/ClockGen.vhd Line: 45
+    Info (12023): Found entity 1: ClockGen File: C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/filesIP/ClockGen.vhd Line: 5
+    Info (12023): Found entity 2: Synchroniser File: C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/filesIP/ClockGen.vhd Line: 31
+Info (12021): Found 2 design units, including 1 entities, in source file filesip/codecinit.vhd
+    Info (12022): Found design unit 1: CodecInit-Source4 File: C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/filesIP/CodecInit.vhd Line: 19
+    Info (12023): Found entity 1: CodecInit File: C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/filesIP/CodecInit.vhd Line: 10
+Info (12021): Found 5 design units, including 2 entities, in source file filesip/i2ctx.vhd
+    Info (12022): Found design unit 1: Codec File: C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/filesIP/I2CTx.vhd Line: 5
+    Info (12022): Found design unit 2: I2CTx-Structural File: C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/filesIP/I2CTx.vhd Line: 26
+    Info (12022): Found design unit 3: I2CTxDp-Reg29bit File: C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/filesIP/I2CTx.vhd Line: 53
+    Info (12023): Found entity 1: I2CTx File: C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/filesIP/I2CTx.vhd Line: 19
+    Info (12023): Found entity 2: I2CTxDp File: C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/filesIP/I2CTx.vhd Line: 45
+Info (12021): Found 3 design units, including 1 entities, in source file filesip/i2ctxcu.vhd
+    Info (12022): Found design unit 1: I2CTxCu-NestedFSM File: C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/filesIP/I2CTxCu.vhd Line: 14
+    Info (12022): Found design unit 2: I2CTxCu-SingleFSM File: C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/filesIP/I2CTxCu.vhd Line: 123
+    Info (12023): Found entity 1: I2CTxCu File: C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/filesIP/I2CTxCu.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file tonegenerator.vhd
+    Info (12022): Found design unit 1: ToneGenerator-Structural File: C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/ToneGenerator.vhd Line: 12
+    Info (12023): Found entity 1: ToneGenerator File: C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/ToneGenerator.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file smdb.vhd
+    Info (12022): Found design unit 1: smdb-logic File: C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/smdb.vhd Line: 22
+    Info (12023): Found entity 1: smdb File: C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/smdb.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file scheduler.vhd
+    Info (12022): Found design unit 1: scheduler-logic File: C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/scheduler.vhd Line: 14
+    Info (12023): Found entity 1: scheduler File: C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/scheduler.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file prescale.vhd
+    Info (12022): Found design unit 1: PreScale-behaviour File: C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/PreScale.vhd Line: 11
+    Info (12023): Found entity 1: PreScale File: C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/PreScale.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file mechdebouncer.vhd
+    Info (12022): Found design unit 1: MechDebouncer-logic File: C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/MechDebouncer.vhd Line: 13
+    Info (12023): Found entity 1: MechDebouncer File: C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/MechDebouncer.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file io_controller.vhd
+    Info (12022): Found design unit 1: io_controller-LogicFunction File: C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/io_controller.vhd Line: 9
+    Info (12023): Found entity 1: io_controller File: C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/io_controller.vhd Line: 5
+Info (12021): Found 2 design units, including 0 entities, in source file definitions_package.vhd
+    Info (12022): Found design unit 1: definitions_package File: C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/definitions_package.vhd Line: 6
+    Info (12022): Found design unit 2: definitions_package-body File: C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/definitions_package.vhd Line: 37
+Info (12021): Found 2 design units, including 1 entities, in source file debouncer.vhd
+    Info (12022): Found design unit 1: debouncer-rtl File: C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/debouncer.vhd Line: 17
+    Info (12023): Found entity 1: debouncer File: C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/debouncer.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file datapath.vhd
+    Info (12022): Found design unit 1: datapath-logic File: C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/datapath.vhd Line: 15
+    Info (12023): Found entity 1: datapath File: C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/datapath.vhd Line: 7
+Info (12021): Found 2 design units, including 1 entities, in source file custom7seg.vhd
+    Info (12022): Found design unit 1: custom7seg-LogicFunction File: C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/custom7seg.vhd Line: 10
+    Info (12023): Found entity 1: custom7seg File: C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/custom7seg.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file control_unit.vhd
+    Info (12022): Found design unit 1: control_unit-LogicFunction File: C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/control_unit.vhd Line: 10
+    Info (12023): Found entity 1: control_unit File: C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/control_unit.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file asip.vhd
+    Info (12022): Found design unit 1: asip-logic File: C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/asip.vhd Line: 15
+    Info (12023): Found entity 1: asip File: C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/asip.vhd Line: 7
+Info (12127): Elaborating entity "smdb" for the top level hierarchy
+Warning (10540): VHDL Signal Declaration warning at smdb.vhd(28): used explicit default value for signal "freqVal" because signal was never assigned a value File: C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/smdb.vhd Line: 28
+Warning (10036): Verilog HDL or VHDL warning at smdb.vhd(31): object "AudioIn" assigned a value but never read File: C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/smdb.vhd Line: 31
+Warning (10492): VHDL Process Statement warning at smdb.vhd(228): signal "audioMode" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/smdb.vhd Line: 228
+Warning (10492): VHDL Process Statement warning at smdb.vhd(229): signal "MemTable" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/smdb.vhd Line: 229
+Warning (10492): VHDL Process Statement warning at smdb.vhd(229): signal "counter" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/smdb.vhd Line: 229
+Warning (10492): VHDL Process Statement warning at smdb.vhd(231): signal "freqVal" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/smdb.vhd Line: 231
+Warning (10492): VHDL Process Statement warning at smdb.vhd(234): signal "error" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/smdb.vhd Line: 234
+Warning (10492): VHDL Process Statement warning at smdb.vhd(235): signal "pauseKey" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/smdb.vhd Line: 235
+Warning (10492): VHDL Process Statement warning at smdb.vhd(238): signal "Tone" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/smdb.vhd Line: 238
+Info (12128): Elaborating entity "MechDebouncer" for hierarchy "MechDebouncer:OBJ1" File: C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/smdb.vhd Line: 81
+Info (12128): Elaborating entity "debouncer" for hierarchy "MechDebouncer:OBJ1|debouncer:obj1" File: C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/MechDebouncer.vhd Line: 29
+Info (12128): Elaborating entity "PreScale" for hierarchy "PreScale:OBJ2" File: C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/smdb.vhd Line: 82
+Warning (10492): VHDL Process Statement warning at PreScale.vhd(20): signal "mode" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/PreScale.vhd Line: 20
+Warning (10492): VHDL Process Statement warning at PreScale.vhd(28): signal "mode" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/PreScale.vhd Line: 28
+Warning (10492): VHDL Process Statement warning at PreScale.vhd(36): signal "mode" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/PreScale.vhd Line: 36
+Warning (10492): VHDL Process Statement warning at PreScale.vhd(58): signal "Mode2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/PreScale.vhd Line: 58
+Warning (10492): VHDL Process Statement warning at PreScale.vhd(59): signal "Mode3" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/PreScale.vhd Line: 59
+Warning (10492): VHDL Process Statement warning at PreScale.vhd(60): signal "Mode4" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/PreScale.vhd Line: 60
+Warning (10492): VHDL Process Statement warning at PreScale.vhd(61): signal "Mode1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/PreScale.vhd Line: 61
+Info (12128): Elaborating entity "asip" for hierarchy "asip:OBJ3" File: C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/smdb.vhd Line: 86
+Info (12128): Elaborating entity "io_controller" for hierarchy "asip:OBJ3|io_controller:OBJ1" File: C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/asip.vhd Line: 37
+Info (12128): Elaborating entity "custom7seg" for hierarchy "asip:OBJ3|io_controller:OBJ1|custom7seg:OBJ0" File: C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/io_controller.vhd Line: 15
+Info (12128): Elaborating entity "control_unit" for hierarchy "asip:OBJ3|control_unit:OBJ2" File: C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/asip.vhd Line: 38
+Info (12128): Elaborating entity "datapath" for hierarchy "asip:OBJ3|datapath:OBJ3" File: C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/asip.vhd Line: 39
+Info (12128): Elaborating entity "scheduler" for hierarchy "asip:OBJ3|datapath:OBJ3|scheduler:OBJ1" File: C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/datapath.vhd Line: 31
+Info (12128): Elaborating entity "ToneGenerator" for hierarchy "ToneGenerator:OBJ4" File: C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/smdb.vhd Line: 102
+Info (12128): Elaborating entity "AudioInterface" for hierarchy "AudioInterface:assm" File: C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/smdb.vhd Line: 104
+Info (12128): Elaborating entity "AudioSubSystemMono" for hierarchy "AudioInterface:assm|AudioSubSystemMono:ASSM" File: C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/filesIP/AudioInterface.vhd Line: 54
+Info (12128): Elaborating entity "ClockGen" for hierarchy "AudioInterface:assm|AudioSubSystemMono:ASSM|ClockGen:CG" File: C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/filesIP/AudioSubSystemMono.vhd Line: 37
+Info (12128): Elaborating entity "Synchroniser" for hierarchy "AudioInterface:assm|AudioSubSystemMono:ASSM|Synchroniser:SYN" File: C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/filesIP/AudioSubSystemMono.vhd Line: 38
+Info (12128): Elaborating entity "CodecInit" for hierarchy "AudioInterface:assm|AudioSubSystemMono:ASSM|CodecInit:CI" File: C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/filesIP/AudioSubSystemMono.vhd Line: 51
+Info (12128): Elaborating entity "I2CTx" for hierarchy "AudioInterface:assm|AudioSubSystemMono:ASSM|CodecInit:CI|I2CTx:TX" File: C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/filesIP/CodecInit.vhd Line: 165
+Info (12128): Elaborating entity "I2CTxDp" for hierarchy "AudioInterface:assm|AudioSubSystemMono:ASSM|CodecInit:CI|I2CTx:TX|I2CTxDp:DP" File: C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/filesIP/I2CTx.vhd Line: 29
+Info (12129): Elaborating entity "I2CTxCu" using architecture "A:nestedfsm" for hierarchy "AudioInterface:assm|AudioSubSystemMono:ASSM|CodecInit:CI|I2CTx:TX|I2CTxCu:CU" File: C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/filesIP/I2CTx.vhd Line: 30
+Info (12128): Elaborating entity "AudRx" for hierarchy "AudioInterface:assm|AudioSubSystemMono:ASSM|AudRx:AI" File: C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/filesIP/AudioSubSystemMono.vhd Line: 59
+Info (12128): Elaborating entity "AudTx" for hierarchy "AudioInterface:assm|AudioSubSystemMono:ASSM|AudTx:AO" File: C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/filesIP/AudioSubSystemMono.vhd Line: 62
+Warning (19016): Clock multiplexers are found and protected
+    Warning (19017): Found clock multiplexer PreScale:OBJ2|Mux0 File: C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/PreScale.vhd Line: 57
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "LEDR[3]" is stuck at GND File: C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/smdb.vhd Line: 9
+    Warning (13410): Pin "LEDR[5]" is stuck at GND File: C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/smdb.vhd Line: 9
+    Warning (13410): Pin "LEDR[7]" is stuck at GND File: C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/smdb.vhd Line: 9
+    Warning (13410): Pin "LEDR[8]" is stuck at GND File: C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/smdb.vhd Line: 9
+    Warning (13410): Pin "LEDR[9]" is stuck at GND File: C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/smdb.vhd Line: 9
+    Warning (13410): Pin "LEDR[10]" is stuck at GND File: C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/smdb.vhd Line: 9
+    Warning (13410): Pin "LEDR[11]" is stuck at GND File: C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/smdb.vhd Line: 9
+    Warning (13410): Pin "LEDR[12]" is stuck at GND File: C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/smdb.vhd Line: 9
+    Warning (13410): Pin "LEDR[13]" is stuck at GND File: C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/smdb.vhd Line: 9
+    Warning (13410): Pin "LEDR[16]" is stuck at GND File: C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/smdb.vhd Line: 9
+    Warning (13410): Pin "LEDG[4]" is stuck at GND File: C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/smdb.vhd Line: 11
+    Warning (13410): Pin "LEDG[5]" is stuck at GND File: C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/smdb.vhd Line: 11
+    Warning (13410): Pin "LEDG[6]" is stuck at GND File: C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/smdb.vhd Line: 11
+    Warning (13410): Pin "LEDG[7]" is stuck at GND File: C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/smdb.vhd Line: 11
+    Warning (13410): Pin "LEDG[8]" is stuck at GND File: C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/smdb.vhd Line: 11
+Info (286030): Timing-Driven Synthesis is running
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 12 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "SW[3]" File: C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/smdb.vhd Line: 8
+    Warning (15610): No output dependent on input pin "SW[5]" File: C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/smdb.vhd Line: 8
+    Warning (15610): No output dependent on input pin "SW[6]" File: C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/smdb.vhd Line: 8
+    Warning (15610): No output dependent on input pin "SW[7]" File: C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/smdb.vhd Line: 8
+    Warning (15610): No output dependent on input pin "SW[8]" File: C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/smdb.vhd Line: 8
+    Warning (15610): No output dependent on input pin "SW[9]" File: C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/smdb.vhd Line: 8
+    Warning (15610): No output dependent on input pin "SW[10]" File: C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/smdb.vhd Line: 8
+    Warning (15610): No output dependent on input pin "SW[11]" File: C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/smdb.vhd Line: 8
+    Warning (15610): No output dependent on input pin "SW[12]" File: C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/smdb.vhd Line: 8
+    Warning (15610): No output dependent on input pin "SW[13]" File: C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/smdb.vhd Line: 8
+    Warning (15610): No output dependent on input pin "SW[16]" File: C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/smdb.vhd Line: 8
+    Warning (15610): No output dependent on input pin "AUD_ADCDAT" File: C:/Users/Sahaj Singh/Documents/Fall 2021/252Labz/Final/smdb.vhd Line: 17
+Info (21057): Implemented 1147 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 27 input pins
+    Info (21059): Implemented 86 output pins
+    Info (21060): Implemented 1 bidirectional pins
+    Info (21061): Implemented 1033 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 48 warnings
+    Info: Peak virtual memory: 4837 megabytes
+    Info: Processing ended: Mon Dec 06 20:39:57 2021
+    Info: Elapsed time: 00:00:09
+    Info: Total CPU time (on all processors): 00:00:19
+
+

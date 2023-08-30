@@ -1,0 +1,185 @@
+------------------------------------------------------------
+Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1200mV 85C Model Setup 'AudioInterface:assm|AudioSubSystemMono:ASSM|Synchroniser:SYN|AdcLrcOut'
+Slack : -6.631
+TNS   : -129.608
+
+Type  : Slow 1200mV 85C Model Setup 'CLOCK_50'
+Slack : -5.115
+TNS   : -451.187
+
+Type  : Slow 1200mV 85C Model Setup 'MechDebouncer:OBJ1|debouncer:obj8|debounced'
+Slack : -4.636
+TNS   : -306.823
+
+Type  : Slow 1200mV 85C Model Setup 'AudioInterface:assm|AudioSubSystemMono:ASSM|Synchroniser:SYN|BclkOut'
+Slack : -3.036
+TNS   : -90.603
+
+Type  : Slow 1200mV 85C Model Setup 'AudioInterface:assm|AudioSubSystemMono:ASSM|ClockGen:CG|DivChain[10]'
+Slack : -2.692
+TNS   : -105.181
+
+Type  : Slow 1200mV 85C Model Hold 'AudioInterface:assm|AudioSubSystemMono:ASSM|ClockGen:CG|DivChain[10]'
+Slack : -0.970
+TNS   : -5.499
+
+Type  : Slow 1200mV 85C Model Hold 'CLOCK_50'
+Slack : 0.401
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'MechDebouncer:OBJ1|debouncer:obj8|debounced'
+Slack : 0.402
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'AudioInterface:assm|AudioSubSystemMono:ASSM|Synchroniser:SYN|BclkOut'
+Slack : 0.431
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'AudioInterface:assm|AudioSubSystemMono:ASSM|Synchroniser:SYN|AdcLrcOut'
+Slack : 0.443
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'CLOCK_50'
+Slack : -3.000
+TNS   : -225.305
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'MechDebouncer:OBJ1|debouncer:obj8|debounced'
+Slack : -1.285
+TNS   : -109.225
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'AudioInterface:assm|AudioSubSystemMono:ASSM|ClockGen:CG|DivChain[10]'
+Slack : -1.285
+TNS   : -60.395
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'AudioInterface:assm|AudioSubSystemMono:ASSM|Synchroniser:SYN|BclkOut'
+Slack : -1.285
+TNS   : -41.120
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'AudioInterface:assm|AudioSubSystemMono:ASSM|Synchroniser:SYN|AdcLrcOut'
+Slack : -1.285
+TNS   : -28.270
+
+Type  : Slow 1200mV 0C Model Setup 'AudioInterface:assm|AudioSubSystemMono:ASSM|Synchroniser:SYN|AdcLrcOut'
+Slack : -5.936
+TNS   : -115.874
+
+Type  : Slow 1200mV 0C Model Setup 'CLOCK_50'
+Slack : -4.570
+TNS   : -404.542
+
+Type  : Slow 1200mV 0C Model Setup 'MechDebouncer:OBJ1|debouncer:obj8|debounced'
+Slack : -4.164
+TNS   : -272.780
+
+Type  : Slow 1200mV 0C Model Setup 'AudioInterface:assm|AudioSubSystemMono:ASSM|Synchroniser:SYN|BclkOut'
+Slack : -2.794
+TNS   : -81.878
+
+Type  : Slow 1200mV 0C Model Setup 'AudioInterface:assm|AudioSubSystemMono:ASSM|ClockGen:CG|DivChain[10]'
+Slack : -2.368
+TNS   : -91.297
+
+Type  : Slow 1200mV 0C Model Hold 'AudioInterface:assm|AudioSubSystemMono:ASSM|ClockGen:CG|DivChain[10]'
+Slack : -0.875
+TNS   : -4.931
+
+Type  : Slow 1200mV 0C Model Hold 'MechDebouncer:OBJ1|debouncer:obj8|debounced'
+Slack : 0.331
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'CLOCK_50'
+Slack : 0.353
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'AudioInterface:assm|AudioSubSystemMono:ASSM|Synchroniser:SYN|BclkOut'
+Slack : 0.398
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'AudioInterface:assm|AudioSubSystemMono:ASSM|Synchroniser:SYN|AdcLrcOut'
+Slack : 0.400
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'CLOCK_50'
+Slack : -3.000
+TNS   : -225.305
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'MechDebouncer:OBJ1|debouncer:obj8|debounced'
+Slack : -1.285
+TNS   : -109.225
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'AudioInterface:assm|AudioSubSystemMono:ASSM|ClockGen:CG|DivChain[10]'
+Slack : -1.285
+TNS   : -60.395
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'AudioInterface:assm|AudioSubSystemMono:ASSM|Synchroniser:SYN|BclkOut'
+Slack : -1.285
+TNS   : -41.120
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'AudioInterface:assm|AudioSubSystemMono:ASSM|Synchroniser:SYN|AdcLrcOut'
+Slack : -1.285
+TNS   : -28.270
+
+Type  : Fast 1200mV 0C Model Setup 'AudioInterface:assm|AudioSubSystemMono:ASSM|Synchroniser:SYN|AdcLrcOut'
+Slack : -2.741
+TNS   : -52.181
+
+Type  : Fast 1200mV 0C Model Setup 'CLOCK_50'
+Slack : -1.922
+TNS   : -146.491
+
+Type  : Fast 1200mV 0C Model Setup 'MechDebouncer:OBJ1|debouncer:obj8|debounced'
+Slack : -1.672
+TNS   : -106.356
+
+Type  : Fast 1200mV 0C Model Setup 'AudioInterface:assm|AudioSubSystemMono:ASSM|Synchroniser:SYN|BclkOut'
+Slack : -1.193
+TNS   : -34.278
+
+Type  : Fast 1200mV 0C Model Setup 'AudioInterface:assm|AudioSubSystemMono:ASSM|ClockGen:CG|DivChain[10]'
+Slack : -0.768
+TNS   : -27.372
+
+Type  : Fast 1200mV 0C Model Hold 'AudioInterface:assm|AudioSubSystemMono:ASSM|ClockGen:CG|DivChain[10]'
+Slack : -0.239
+TNS   : -1.180
+
+Type  : Fast 1200mV 0C Model Hold 'MechDebouncer:OBJ1|debouncer:obj8|debounced'
+Slack : 0.145
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'CLOCK_50'
+Slack : 0.180
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'AudioInterface:assm|AudioSubSystemMono:ASSM|Synchroniser:SYN|BclkOut'
+Slack : 0.186
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'AudioInterface:assm|AudioSubSystemMono:ASSM|Synchroniser:SYN|AdcLrcOut'
+Slack : 0.200
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'CLOCK_50'
+Slack : -3.000
+TNS   : -222.269
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'MechDebouncer:OBJ1|debouncer:obj8|debounced'
+Slack : -1.000
+TNS   : -85.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'AudioInterface:assm|AudioSubSystemMono:ASSM|ClockGen:CG|DivChain[10]'
+Slack : -1.000
+TNS   : -47.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'AudioInterface:assm|AudioSubSystemMono:ASSM|Synchroniser:SYN|BclkOut'
+Slack : -1.000
+TNS   : -32.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'AudioInterface:assm|AudioSubSystemMono:ASSM|Synchroniser:SYN|AdcLrcOut'
+Slack : -1.000
+TNS   : -22.000
+
+------------------------------------------------------------

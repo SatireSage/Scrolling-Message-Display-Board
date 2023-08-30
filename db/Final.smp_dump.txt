@@ -1,0 +1,61 @@
+
+State Machine - |smdb|AudioInterface:assm|AudioSubSystemMono:ASSM|CodecInit:CI|\CU:State
+Name \CU:State.state_bit_4 \CU:State.state_bit_3 \CU:State.state_bit_2 \CU:State.state_bit_1 \CU:State.state_bit_0 
+\CU:State.Idle 0 0 0 0 0 
+\CU:State.WE 0 0 0 0 1 
+\CU:State.W0 0 0 0 1 0 
+\CU:State.X0 0 0 0 1 1 
+\CU:State.W1 0 0 1 1 0 
+\CU:State.X1 0 0 1 1 1 
+\CU:State.W2 0 1 0 1 0 
+\CU:State.X2 0 1 0 1 1 
+\CU:State.W3 0 1 1 1 0 
+\CU:State.X3 0 1 1 1 1 
+\CU:State.W4 0 1 0 0 0 
+\CU:State.X4 0 1 0 0 1 
+\CU:State.W5 0 0 1 0 0 
+\CU:State.X5 0 0 1 0 1 
+\CU:State.W6 0 1 1 0 0 
+\CU:State.X6 0 1 1 0 1 
+\CU:State.W7 1 0 0 0 0 
+\CU:State.X7 1 0 0 0 1 
+\CU:State.W8 1 0 0 1 0 
+\CU:State.X8 1 0 0 1 1 
+
+State Machine - |smdb|AudioInterface:assm|AudioSubSystemMono:ASSM|CodecInit:CI|I2CTx:TX|I2CTxCu:CU|PacketState
+Name PacketState.state_bit_3 PacketState.state_bit_2 PacketState.state_bit_1 PacketState.state_bit_0 
+PacketState.D7 0 0 0 0 
+PacketState.D6 0 0 1 0 
+PacketState.D5 0 1 0 0 
+PacketState.D4 0 1 1 0 
+PacketState.D3 0 1 0 1 
+PacketState.D2 0 1 1 1 
+PacketState.D1 1 0 0 0 
+PacketState.D0 0 0 1 1 
+PacketState.Ack 0 0 0 1 
+
+State Machine - |smdb|AudioInterface:assm|AudioSubSystemMono:ASSM|CodecInit:CI|I2CTx:TX|I2CTxCu:CU|CycleState
+Name CycleState.state_bit_1 CycleState.state_bit_0 
+CycleState.C0 0 0 
+CycleState.C1 0 1 
+CycleState.C2 1 1 
+CycleState.C3 1 0 
+
+State Machine - |smdb|AudioInterface:assm|AudioSubSystemMono:ASSM|CodecInit:CI|I2CTx:TX|I2CTxCu:CU|MainState
+Name MainState.state_bit_2 MainState.state_bit_1 MainState.state_bit_0 
+MainState.idle 0 0 0 
+MainState.start 0 0 1 
+MainState.Packet0 0 1 0 
+MainState.Packet1 0 1 1 
+MainState.Packet2 1 1 0 
+MainState.stop 1 0 1 
+MainState.Mwait 1 0 0 
+
+State Machine - |smdb|asip:OBJ3|datapath:OBJ3|scheduler:OBJ1|progState
+Name progState.progError progState.progIdle progState.prog4 progState.prog3 progState.prog2 progState.prog1 
+progState.prog1 0 0 0 0 0 0 
+progState.prog2 0 0 0 0 1 1 
+progState.prog3 0 0 0 1 0 1 
+progState.prog4 0 0 1 0 0 1 
+progState.progIdle 0 1 0 0 0 1 
+progState.progError 1 0 0 0 0 1 

@@ -1,0 +1,131 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.all;
+USE ieee.numeric_std.all;
+USE ieee.std_logic_unsigned.all;
+
+package definitions_package is
+	CONSTANT N : INTEGER := 8;
+	TYPE c7s IS ARRAY (0 to N-1) OF STD_LOGIC_VECTOR(N-4 DOWNTO 0);
+	TYPE cHex IS ARRAY (0 to N-1) OF STD_LOGIC_VECTOR(N-2 DOWNTO 0);
+	TYPE MEM IS ARRAY (0 to 99) OF signed(15 downto 0);
+	
+	TYPE Set1 IS ARRAY (0 to 14)  OF integer;
+	TYPE Set2 IS ARRAY (0 to 10) OF integer;
+	TYPE Set3 IS ARRAY (0 to 17) OF integer;
+	TYPE Set4 IS ARRAY (0 to 1) OF integer;
+	
+	CONSTANT ProgramNum1 	: Set1 := (41,42,43,44,45,46,47,48,49,50,51,52,53,54,55);
+	CONSTANT ProgramNum2 	: Set2 := (1,2,3,4,5,6,7,8,9,10,11);
+	CONSTANT ProgramNum3 	: Set2 := (12,13,14,15,16,17,18,19,20,21,22);
+	CONSTANT ProgramNum4 	: Set3 := (23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40);
+	CONSTANT ProgramNumError: Set4 := (56, 0);
+	
+	function Program1 (
+    clk : in std_logic)
+    return Set4;
+	 
+	function Program2 (
+    clk : in std_logic)
+	 return Set4;
+	 
+	function Program3 (
+    clk : in std_logic)
+	 return Set4;
+	 
+	function Program4 (
+    clk : in std_logic)
+	 return Set4;
+	 
+	function ProgramError (
+    clk : in std_logic)
+	 return Set4;
+	 
+	--	TYPE bus_width IS ARRAY (0 to 2) OF UNSIGNED(N-1 DOWNTO 0); 
+	--	TYPE SWIn IS ARRAY (natural range <>) OF STD_LOGIC_VECTOR(2 DOWNTO 0);
+	--	TYPE Instruct IS ARRAY (natural range <>)  OF STD_LOGIC_VECTOR(N-3 DOWNTO 0);
+end package definitions_package;
+
+package body definitions_package is
+
+	function Program1 (clk : in std_logic) return Set4 is
+		variable counter : integer;
+		variable output  : Set4;
+		Begin
+			if (clk = '1') then
+				if counter = 14 then
+					counter := 0;
+				else
+					counter := counter + 1;
+				end if;
+			end if;
+			output(0) := ProgramNum1(counter);
+			output(1) := counter;
+		return output;
+	end function Program1; 
+ 
+	function Program2 (clk : in std_logic) return Set4 is
+		variable counter : integer;
+		variable output  : Set4;
+		Begin
+			if (clk = '1') then
+				if counter = 10 then
+					counter := 0;
+				else
+					counter := counter + 1;
+				end if;
+			end if;
+			output(0) := ProgramNum2(counter);
+			output(1) := counter;
+		return output;
+	end function Program2; 
+	
+	function Program3 (clk : in std_logic) return Set4 is
+		variable counter : integer;
+		variable output  : Set4;
+		Begin
+			if (clk = '1') then
+				if counter = 10 then
+					counter := 0;
+				else
+					counter := counter + 1;
+				end if;
+			end if;
+			output(0) := ProgramNum3(counter);
+			output(1) := counter;
+		return output;
+	end function Program3; 
+	
+	function Program4 (clk : in std_logic) return Set4 is
+		variable counter : integer;
+		variable output  : Set4;
+		Begin
+			if (clk = '1') then
+				if counter = 17 then
+					counter := 0;
+				else
+					counter := counter + 1;
+				end if;
+			end if;
+			output(0) := ProgramNum4(counter);
+			output(1) := counter;
+		return output;
+	end function Program4; 
+	
+	function ProgramError (clk : in std_logic) return Set4 is
+		variable counter : integer;
+		variable output  : Set4;
+		Begin
+			if (clk = '1') then
+				if counter = 1 then
+					counter := 0;
+				else
+					counter := counter + 1;
+				end if;
+			end if;
+			output(0) := ProgramNumError(counter);
+			output(1) := counter;
+		return output;
+	end function ProgramError; 
+				
+	 
+end package body definitions_package;
